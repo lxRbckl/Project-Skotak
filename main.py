@@ -23,7 +23,7 @@ gRepository = ''
 gPath = path.realpath(__file__).split('/')
 gDirectory = '/'.join(gPath[:(len(gPath) - 1)])
 githubToken = ''
-fenaverat = commands.Bot(command_prefix = '', intents = Intents.all())
+skotak = commands.Bot(command_prefix = '', intents = Intents.all())
 discordToken = ''
 
 # >
@@ -79,7 +79,7 @@ async def delFunction(ctx, pKey: str, pValue: str, pAction: str, pData: dict):
     # >
 
 
-@fenaverat.event
+@skotak.event
 async def on_ready(pGithub = Github(githubToken)):
     '''  '''
 
@@ -127,7 +127,7 @@ async def on_ready(pGithub = Github(githubToken)):
 
 
 @commands.has_permissions(administrator = True)
-@fenaverat.command(aliases = jsonLoad(pFile = f'{gDirectory}/setting.json')['aliases'])
+@skotak.command(aliases = jsonLoad(pFile = f'{gDirectory}/setting.json')['aliases'])
 async def commandFunction(ctx, pKey: str = None, pAction: str = None, pValue: str = None):
     '''  '''
 
@@ -164,6 +164,6 @@ async def commandFunction(ctx, pKey: str = None, pAction: str = None, pValue: st
 
 
 # main <
-if (__name__ == '__main__'): fenaverat.run(discordToken)
+if (__name__ == '__main__'): skotak.run(discordToken)
 
 # >
