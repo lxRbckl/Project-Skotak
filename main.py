@@ -4,7 +4,6 @@
 # import <
 from os import path
 from json import loads
-from requests import get
 from github import Github
 from asyncio import sleep
 from discord import Intents
@@ -93,14 +92,21 @@ async def on_ready(pGithub = Github(githubToken)):
             # if (permitted project) <
             if (r not in data['project']['remove']):
 
+                feed = githubGet(
+
+                    pGithub = pGithub,
+                    pFile = 'feed.json',
+                    pRepository = r.full_name
+
+                )
                 bData[r.full_name] = {
 
+                    'feed' : feed if (feed) else 'None',
                     'link' : f'https://github.com/{r.full_name}',
-                    'description' : r.description if (r.description) else 'null',
+                    'description' : r.description if (r.description) else 'None',
                     'topic' : [t for t in r.get_topics() if (t not in data['topic']['remove'])],
                     'language' : [l for l in r.get_languages() if (l not in data['language']['remove'])],
-                    'update' : dt.strptime(str(r.pushed_at).split(' ')[0], '%Y-%m-%d').strftime('%B %d %Y'),
-                    'feed' : loads(get(f'https://raw.githubusercontent.com/{r.full_name}/main/feed.json')).keys()
+                    'update' : dt.strptime(str(r.pushed_at).split(' ')[0], '%Y-%m-%d').strftime('%B %d %Y')
 
                 }
 
@@ -116,7 +122,7 @@ async def on_ready(pGithub = Github(githubToken)):
                 pGithub = pGithub,
                 pBranch = gBranch,
                 pRepository = gRepository,
-                pMessage = 'Fenaverat Automated Message'
+                pMessage = 'Skotak Automated Update'
 
             )
             aData = bData
