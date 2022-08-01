@@ -11,6 +11,8 @@ from discord.ext import commands
 from datetime import datetime as dt
 from lxRbckl import jsonLoad, jsonDump, githubSet, githubGet
 
+from requests import get
+
 # >
 
 
@@ -101,7 +103,7 @@ async def on_ready(pGithub = Github(githubToken)):
                 )
                 bData[r.full_name] = {
 
-                    'feed' : feed if (feed) else 'None',
+                    'feed' : feed.keys() if (feed) else 'None',
                     'link' : f'https://github.com/{r.full_name}',
                     'description' : r.description if (r.description) else 'None',
                     'topic' : [t for t in r.get_topics() if (t not in data['topic']['remove'])],
