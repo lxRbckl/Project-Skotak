@@ -1,4 +1,4 @@
-## `Project-Skotak`
+## `Project Skotak`
 > 
 
 ### `Installation`
