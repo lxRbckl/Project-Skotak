@@ -1,5 +1,5 @@
 ## `Project Skotak`
-> 
+> A task manager with the purpose of updating a website portfolio.
 
 ### `Installation`
 ```
