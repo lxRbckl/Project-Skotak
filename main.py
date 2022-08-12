@@ -107,7 +107,6 @@ async def on_ready(pGithub = Github(githubToken)):
                     'feed' : list(feed.keys()) if (feed) else 'None',
                     'description' : r.description if (r.description) else 'None',
                     'topic' : [t for t in r.get_topics() if (t not in data['topic']['remove'])],
-                    'image' : feed['image'] if ((feed) and ('image' in feed.keys())) else 'None',
                     'language' : [l for l in r.get_languages() if (l not in data['language']['remove'])],
                     'update' : dt.strptime(str(r.pushed_at).split(' ')[0], '%Y-%m-%d').strftime('%B %d %Y')
 
