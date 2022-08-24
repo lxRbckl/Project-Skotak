@@ -104,7 +104,7 @@ async def on_ready(pGithub = Github(githubToken)):
                 bData[r.full_name] = {
 
                     'link' : f'https://github.com/{r.full_name}',
-                    'feed' : list(feed.keys()) if (feed) else 'None',
+                    'feed' : list(feed.keys()) if (feed) else [],
                     'description' : r.description if (r.description) else 'None',
                     'topic' : [t for t in r.get_topics() if (t not in data['topic']['remove'])],
                     'language' : [l for l in r.get_languages() if (l not in data['language']['remove'])],
