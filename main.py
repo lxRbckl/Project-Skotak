@@ -101,7 +101,7 @@ async def on_ready(pGithub = Github(githubToken)):
                     pRepository = r.full_name
 
                 )
-                bData[r.full_name] = {
+                bData[r.full_name.split('/')[1]] = {
 
                     'link' : f'https://github.com/{r.full_name}',
                     'feed' : list(feed.keys()) if (feed) else [],
