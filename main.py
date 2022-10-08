@@ -36,7 +36,6 @@ async def setFunction(ctx, pKey: str, pAction: str, pValue: str, pData: dict):
     # if (new value) then set value <
     if (pValue not in pData[pKey][pAction]):
 
-        await ctx.message.delete()
         pData[pKey][pAction].append(pValue)
         jsonDump(
 
@@ -58,7 +57,6 @@ async def getFunction(ctx, pKey: str, pValue: str, pAction: str, pData: dict):
 
     # >
 
-    await ctx.message.delete()
     await ctx.channel.send(delete_after = 60, content = '\n'.join(r))
 
 
@@ -68,7 +66,6 @@ async def delFunction(ctx, pKey: str, pValue: str, pAction: str, pData: dict):
     # if (existing value) then get value <
     if (pValue in pData[pKey][pAction]):
 
-        await ctx.message.delete()
         pData[pKey][pAction].remove(pValue)
         jsonDump(
 
@@ -103,10 +100,11 @@ async def on_ready(pGithub = Github(githubToken)):
                 )
                 bData[r.full_name.split('/')[1]] = {
 
-                    'link' : f'https://github.com/{r.full_name}',
-                    'feed' : list(feed.keys()) if (feed) else [],
+                    'projectLink' : f'https://github.com/{r.full_name}',
+                    'feedSubject' : list(feed.keys()) if (feed) else [],
                     'description' : r.description if (r.description) else 'None',
                     'topic' : [t for t in r.get_topics() if (t not in data['topic']['remove'])],
+                    'feedLink' : f'https://raw.githubusercontent.com/{r.full_name}/main/feed.json',
                     'language' : [l for l in r.get_languages() if (l not in data['language']['remove'])],
                     'update' : dt.strptime(str(r.pushed_at).split(' ')[0], '%Y-%m-%d').strftime('%B %d %Y')
 
