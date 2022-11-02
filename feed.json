@@ -1,12 +1,11 @@
 
 {
-  "image" : null,
-  "color": "rgb(111, 14, 83)",
   "feed" : {
 
     "link" : null,
     "border" : null,
     "background": null,
+    "color": "rgb(111, 14, 83)",
     "content" : {
 
       "issues": {
