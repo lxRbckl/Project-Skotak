@@ -3,10 +3,42 @@
   "image" : null,
   "color": "rgb(111, 14, 83)",
   "feed" : {
-    "issues" : "a",
-    "problems" : "b",
-    "overcomes" : "c"
-    
+
+    "link" : null,
+    "border" : null,
+    "background": null,
+    "content" : {
+
+      "issues": {
+
+        "title" : null,
+        "subject": [
+
+          [
+            "space",
+            null,
+            null
+          ],
+          [
+            "text",
+            "yellow",
+            [
+              "This is text",
+              "this is also text."
+            ]
+          ],
+          [
+            "image",
+            null,
+            "https://cdn.discordapp.com/attachments/941726819420364850/1001654136124751912/IMG_7678.png"
+          ]
+
+        ]
+
+      }
+
+    }
+
   }
   
 }
