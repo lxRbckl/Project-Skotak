@@ -1,4 +1,4 @@
-## `Project Skotak`
+## [`Project Skotak`](http://lxrbckl.com/Project-Skotak)
 > A task manager with the purpose of autonomously updating a website portfolio.
 
 ### `Installation`
