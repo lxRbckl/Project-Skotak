@@ -1,33 +1,44 @@
 {
-   "aliases": [
-      "set",
-      "Set",
-      "SET",
-      "get",
-      "Get",
-      "GET",
-      "update",
-      "Update",
-      "UPDATE",
-      "del",
-      "Del",
-      "DEL",
-      "delete",
-      "Delete",
-      "DELETE"
+   "aliases" : {
+      "get" : [
+         "get",
+         "Get",
+         "GET"
+      ],
+      "set" : [
+         "set",
+         "Set",
+         "SET"
+      ],
+      "del" : [
+         "del",
+         "Del",
+         "DEL",
+         "delete",
+         "Delete",
+         "DELETE"
+      ]
+   },
+   "interval" : 60,
+   "branch" : [
+      "main",
+      "master"
    ],
-   "user": {
-      "add": []
+   "user" : {
+      "add" : [
+         "lxRbckl",
+         "ala2q6"
+      ]
    },
-   "language": {
-      "add": [],
-      "remove": []
+   "project" : {
+      "remove" : []
    },
-   "topic": {
-      "add": [],
-      "remove": []
+   "topic" : {
+      "add" : [],
+      "remove" : []
    },
-   "project": {
-      "remove": []
+   "language" : {
+      "add" : [],
+      "remove" : []
    }
 }
