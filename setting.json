@@ -1,29 +1,16 @@
 {
-   "aliases" : {
-      "get" : [
-         "get",
-         "Get",
-         "GET"
-      ],
-      "set" : [
-         "set",
-         "Set",
-         "SET"
-      ],
-      "del" : [
-         "del",
-         "Del",
-         "DEL",
-         "delete",
-         "Delete",
-         "DELETE"
-      ]
-   },
-   "interval" : 60,
-   "branch" : [
-      "main",
-      "master"
+   "aliases" : [
+      "get",
+      "Get",
+      "GET",
+      "set",
+      "Set",
+      "SET",
+      "del",
+      "Del",
+      "DEL"
    ],
+   "interval" : 60,
    "user" : {
       "add" : [
          "lxRbckl",
