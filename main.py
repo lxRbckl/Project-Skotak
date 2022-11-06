@@ -112,6 +112,7 @@ async def delFunction(
     # >
 
 
+@commands.has_permissions(administrator = True)
 @skotak.command(aliases = requestsGet(pLink = gSettingLink)['aliases'])
 async def functionCommand(
 
