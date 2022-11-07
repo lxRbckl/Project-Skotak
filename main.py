@@ -22,7 +22,6 @@ gFile = 'setting.json'
 gGithub = Github(githubToken)
 gRepository = 'lxRbckl/Project-Skotak'
 skotak = commands.Bot(command_prefix = '', intents = Intents.all())
-gDataLink = 'https://github.com/lxRbckl/Project-Skotak/raw/main/data.json'
 gSettingLink = 'https://github.com/lxRbckl/Project-Skotak/raw/main/setting.json'
 
 # >
