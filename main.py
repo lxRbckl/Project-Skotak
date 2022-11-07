@@ -138,7 +138,7 @@ async def functionCommand(
     # >
 
     # if (update) <
-    if (setting != rSetting):
+    if ((setting != rSetting) and (rSetting is not None)):
 
         githubSet(
 
