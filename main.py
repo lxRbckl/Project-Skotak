@@ -170,7 +170,6 @@ async def on_ready():
 
                     feed = githubGet(
 
-                        pBranch = 'main',
                         pGithub = gGithub,
                         pFile = 'feed.json',
                         pRepository = r.full_name
