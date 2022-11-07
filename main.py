@@ -137,15 +137,17 @@ async def functionCommand(
 
     # >
 
-    # update <
-    githubSet(
+    # if (update) <
+    if (setting != rSetting):
 
-        pFile = gFile,
-        pData = rSetting,
-        pGithub = gGithub,
-        pRepository = gRepository
+        githubSet(
 
-    )
+            pFile = gFile,
+            pData = rSetting,
+            pGithub = gGithub,
+            pRepository = gRepository
+
+        )
 
     # >
 
