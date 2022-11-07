@@ -160,7 +160,7 @@ async def on_ready():
         # iterate (repository) <
         setting = requestsGet(pLink = gSettingLink)
         bData = {'topic' : setting['topic']['add'], 'language' : setting['language']['add']}
-        for r in [r for u in setting['user'] for r in gGithub.get_user(u).get_repos()]:
+        for r in [r for u in setting['user']['add'] for r in gGithub.get_user(u).get_repos()]:
 
             # if (included project) <
             if (r.full_name.split('/')[1] not in setting['project']['remove']):
