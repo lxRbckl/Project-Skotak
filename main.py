@@ -39,21 +39,13 @@ async def setFunction(
     '''  '''
 
     # set <
-    # update <
     if (isinstance(pSetting[pKey], int)): pSetting[pKey] = int(pValue)
     elif (isinstance(pSetting[pKey], list)): pSetting[pKey].append(pValue)
     elif (isinstance(pSetting[pKey], dict)): pSetting[pKey][pValue].append(pElement)
 
-    githubSet(
-
-        pFile = gFile,
-        pData = pSetting,
-        pGithub = gGithub,
-        pRepository = gRepository
-
-    )
-
     # >
+
+    return pSetting
 
 
 async def getFunction(
@@ -83,6 +75,8 @@ async def getFunction(
 
     # >
 
+    return None
+
 
 async def delFunction(
 
@@ -96,19 +90,12 @@ async def delFunction(
     '''  '''
 
     # delete <
-    # update <
     if (isinstance(pSetting[pKey], list)): pSetting[pKey].remove(pValue)
     elif (isinstance(pSetting[pKey], dict)): pSetting[pKey][pValue].remove(pElement)
 
-    githubSet(
-
-        pData = pSetting,
-        pGithub = gGithub,
-        pRepository = gRepository
-
-    )
-
     # >
+
+    return pSetting
 
 
 @commands.has_permissions(administrator = True)
@@ -123,7 +110,16 @@ async def functionCommand(
 ):
     '''  '''
 
-    await {
+    # set (setting)
+    # get (rSetting) <
+    setting = githubGet(
+
+        pFile = gFile,
+        pGithub = gGithub,
+        pRepository = gRepository
+
+    )
+    rSetting = await {
 
         'set' : setFunction,
         'get' : getFunction,
@@ -134,16 +130,24 @@ async def functionCommand(
         ctx = ctx,
         pKey = pKey,
         pValue = pValue,
-        pElement = pElement,
-        pSetting = githubGet(
-
-            pFile = gFile,
-            pGithub = gGithub,
-            pRepository = gRepository
-
-        )
+        pSetting = setting,
+        pElement = pElement
 
     )
+
+    # >
+
+    # update <
+    githubSet(
+
+        pFile = gFile,
+        pData = rSetting,
+        pGithub = gGithub,
+        pRepository = gRepository
+
+    )
+
+    # >
 
 
 @skotak.event
