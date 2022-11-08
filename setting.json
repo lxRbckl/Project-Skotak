@@ -1,1 +1,1 @@
-{"aliases": ["get", "Get", "GET", "set", "Set", "SET", "del", "Del", "DEL"], "interval": 60, "user": {"add": ["lxRbckl", "ala2q6"]}, "project": {"remove": []}, "topic": {"add": [], "remove": []}, "language": {"add": ["Python"], "remove": []}}
+{"aliases": ["get", "Get", "GET", "set", "Set", "SET", "del", "Del", "DEL"], "interval": 5, "user": {"add": ["lxRbckl", "ala2q6"]}, "project": {"remove": []}, "topic": {"add": [], "remove": []}, "language": {"add": ["Python"], "remove": []}}
