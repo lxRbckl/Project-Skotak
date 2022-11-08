@@ -17,7 +17,6 @@ from lxRbckl import githubSet, githubGet, requestsGet
 githubToken = ''
 discordToken = ''
 
-
 gFile = 'setting.json'
 gGithub = Github(githubToken)
 gRepository = 'lxRbckl/Project-Skotak'
@@ -39,13 +38,11 @@ async def setFunction(
     '''  '''
 
     # set <
-    if (isinstance(pSetting[pKey], int)): pSetting[pKey] = int(pValue)
-    elif (isinstance(pSetting[pKey], list)): pSetting[pKey].append(pValue)
-    elif (isinstance(pSetting[pKey], dict)): pSetting[pKey][pValue].append(pElement)
+    if (isinstance(pSetting[pKey], int)): pSetting[pKey] = int(pValue); return True
+    elif (isinstance(pSetting[pKey], list)): pSetting[pKey].append(pValue); return True
+    elif (isinstance(pSetting[pKey], dict)): pSetting[pKey][pValue].append(pElement); return True
 
     # >
-
-    return pSetting
 
 
 async def getFunction(
@@ -71,11 +68,11 @@ async def getFunction(
         delete_after = 60,
         content = f'`{content}`'
 
-    )
+    ) if (content) else None
 
     # >
 
-    return None
+    return False
 
 
 async def delFunction(
@@ -90,12 +87,10 @@ async def delFunction(
     '''  '''
 
     # delete <
-    if (isinstance(pSetting[pKey], list)): pSetting[pKey].remove(pValue)
-    elif (isinstance(pSetting[pKey], dict)): pSetting[pKey][pValue].remove(pElement)
+    if (isinstance(pSetting[pKey], list)): pSetting[pKey].remove(pValue); return True
+    elif (isinstance(pSetting[pKey], dict)): pSetting[pKey][pValue].remove(pElement); return True
 
     # >
-
-    return pSetting
 
 
 @commands.has_permissions(administrator = True)
@@ -111,7 +106,7 @@ async def functionCommand(
     '''  '''
 
     # set (setting)
-    # get (rSetting) <
+    # get (bSetting) <
     setting = githubGet(
 
         pFile = gFile,
@@ -119,7 +114,7 @@ async def functionCommand(
         pRepository = gRepository
 
     )
-    rSetting = await {
+    bSetting = await {
 
         'set' : setFunction,
         'get' : getFunction,
@@ -138,12 +133,12 @@ async def functionCommand(
     # >
 
     # if (update) <
-    if ((setting != rSetting) and (rSetting is not None)):
+    if (bSetting):
 
         githubSet(
 
             pFile = gFile,
-            pData = rSetting,
+            pData = setting,
             pGithub = gGithub,
             pRepository = gRepository
 
