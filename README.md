@@ -1,5 +1,7 @@
 ## [`Project Skotak`](http://lxrbckl.com/Project-Skotak)
-> A task manager with the purpose of autonomously updating a website portfolio.
+> Adjust settings on your portfolio with a Discord bot.
+
+
 
 ### `Installation`
 ```
