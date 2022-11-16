@@ -5,7 +5,6 @@
 from github import Github
 from discord import Intents
 from discord.ext import commands
-from datetime import datetime as dt
 from lxRbckl import githubSet, githubGet, requestsGet
 
 # >
