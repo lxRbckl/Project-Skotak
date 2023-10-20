@@ -1,2 +1,2 @@
-## [`Project Skotak`](http://lxrbckl.com/Project-Skotak)
-> Adjust settings on your portfolio with a Discord bot. Fall 2022.
+## `Project Skotak`
+> Fine-tune your portfolio settings using a Discord bot. Fall 2022.
